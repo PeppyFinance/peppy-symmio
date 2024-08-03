@@ -29,8 +29,10 @@ export const Wrapper = styled.div`
 const NumericalWrapper = styled(RowBetween)`
   width: 100%;
   font-size: 16px;
-  font-weight: 600;
   position: relative;
+  border: 1px solid ${({ theme }) => theme.border1};
+  border-radius: 2px;
+  padding: 4px 8px;
   color: ${({ theme }) => theme.text7};
   margin-top: 10px;
   ${({ theme }) => theme.mediaWidth.upToSmall`

@@ -23,7 +23,7 @@ export default function OrderTypeTab() {
 
   return (
     <Tab
-      tabOptions={[OrderType.LIMIT, OrderType.MARKET]}
+      tabOptions={[OrderType.MARKET, OrderType.LIMIT]}
       activeOption={orderType}
       onChange={(option: string) => setOrderType(option as OrderType)}
     />

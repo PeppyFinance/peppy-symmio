@@ -23,8 +23,9 @@ export const InputField = styled.input<{
   -webkit-background-clip: text;
   -webkit-text-fill-color: ${({ calculationMode }) =>
     calculationMode ? "transparent" : "unset"};
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: ${({ theme }) => theme.text0};
   text-align: left;
 
