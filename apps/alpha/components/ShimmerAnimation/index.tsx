@@ -19,9 +19,7 @@ const shimmerAnimation = css`
 const Comment = styled.div<{
   height?: string;
   width?: string;
-  borderRadius?: string;
 }>`
-  border-radius: ${({ borderRadius }) => borderRadius ?? "4px"};
   height: ${({ height }) => height ?? "10px"};
   width: ${({ width }) => width ?? "50px"};
   ${shimmerAnimation}
@@ -30,11 +28,9 @@ const Comment = styled.div<{
 export default function ShimmerAnimation({
   width,
   height,
-  borderRadius,
 }: {
   width?: string;
   height?: string;
-  borderRadius?: string;
 }) {
-  return <Comment width={width} height={height} borderRadius={borderRadius} />;
+  return <Comment width={width} height={height} />;
 }

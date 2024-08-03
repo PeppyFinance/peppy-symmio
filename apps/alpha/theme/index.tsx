@@ -67,7 +67,7 @@ function colors(): Colors {
       text3: "#FFFFFF",
       text4: "#5F607F",
       text5: "#4E5273",
-      text7: "rgba(255, 255, 255, 1)",
+      text7: "#B2B5BE",
       text8: "#FFFFFF",
 
       // these colors aren't for monolith
@@ -75,9 +75,9 @@ function colors(): Colors {
 
       // backgrounds / greys
       bg: "#0F0E1A",
-      bg0: "#131220",
-      bg1: "#1E1E30",
-      bg2: "#26273A",
+      bg0: "#131722",
+      bg1: "#181C27",
+      bg2: "#363A45",
       bg3: "#363754",
       bg4: "#4E4F73",
       bg5: "#191C4B",
@@ -93,7 +93,7 @@ function colors(): Colors {
       bgWarning: "#270902",
 
       // borders
-      border1: "#3F434C",
+      border1: "#363A45",
       border2: "#121220",
       border3: "#2A2E39",
 
@@ -134,15 +134,13 @@ function colors(): Colors {
       primary8: "linear-gradient(90deg, #F78C2A 0%, #F34038 100%)",
 
       // other
-      red1: "#EA5E5E",
-      green1: "#7DD485",
+      red1: "#F23545",
+      green1: "#0A9981",
       green2: "#304349",
       green3: "#6ff37b",
       green4: "#97d136",
       greenButton: "#4D9654",
       redButton: "#C92B77",
-      peppyGreen: "rgba(158, 231, 77, 0.7)",
-      peppyRed: "#F83590",
       error: "#BC2D36",
       error1: "#9B4C4C",
       success: "#27AE60",
@@ -185,13 +183,17 @@ function shadows(themeName: SupportedThemes): Shadows {
   const themeShadows = {
     [SupportedThemes.LIGHT]: {
       shadow1: "#2F80ED",
-      boxShadow1: "0px 0px 16px 0px #d600b880",
-      boxShadow2: "0px 5px 5px rgba(0, 0, 0, 0.15)",
+      boxShadowDropdown:
+        "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
+      boxShadowModal:
+        "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;",
     },
     [SupportedThemes.DARK]: {
       shadow1: "#000",
-      boxShadow1: "0px 0px 16px 0px #d600b880",
-      boxShadow2: "0px 5px 5px rgba(0, 0, 0, 0.15)",
+      boxShadowDropdown:
+        "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
+      boxShadowModal:
+        "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;",
     },
   };
   // default the theme to light mode
@@ -254,11 +256,11 @@ export default function ThemeProvider({
 export const ThemedGlobalStyle = createGlobalStyle`
   html {
     color: ${({ theme }) => theme.text0};
-    background-color: ${({ theme }) => theme.bg6};
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
   }
+
   a {
     color: ${({ theme }) => theme.text0}; 
   }
@@ -272,6 +274,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     font-family: "Space Grotesk", sans-serif;
     font-size: 16px;
     font-weight:700;
+    border-radius: 2px;
   }
 
   button {
@@ -299,12 +302,6 @@ export const ThemedGlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
   }
 
-  /* Firefox */
-  input[type=number] {
-    font-family: 'Spline Sans';
-    -moz-appearance: textfield;
-  }
-
   .space-grotesk {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
@@ -312,22 +309,14 @@ export const ThemedGlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-
-  .boxStyling{
-    background: rgba(233, 232, 237, 0.3) !important;
-    box-shadow: 0px 0px 3px 0px rgba(254, 251, 224, 0.2) inset; 
-    border-radius: 10px;
+  .boxStyling {
+    background-color: ${({ theme }) => theme.bg1};
+    border-radius: 2px;
+    border: 1px solid ${({ theme }) => theme.border1};
     backdrop-filter: blur(15px);
-  }
-
-  .boxStylingDarker {
-    background: rgba(76, 70, 110, 0.3);
-    box-shadow: 0px 4px 4px 0px #00000040;
-    border-radius: 10px;
   }
 
   .noDecoration {
     text-decoration: none;
   }
-  
 `;

@@ -128,11 +128,7 @@ export default function BaseCard({
       >
         <LogoWrapper rotate={rotate}>
           {loading ? (
-            <ShimmerAnimation
-              width={"40px"}
-              height={"40px"}
-              borderRadius={"20px"}
-            />
+            <ShimmerAnimation width={"40px"} height={"40px"} />
           ) : (
             <>
               {icon && (

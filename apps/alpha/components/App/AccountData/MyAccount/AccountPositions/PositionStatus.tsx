@@ -118,14 +118,14 @@ function PositionStatusBody() {
         <PositionNumber>{longPositionNumber}</PositionNumber>
         <PositionText gap={"4px"}>
           Longs
-          <LongArrow width={12} height={8} color={theme.peppyGreen} />
+          <LongArrow width={12} height={8} color={theme.green1} />
         </PositionText>
       </PositionInfo>
       <PositionInfo>
         <PositionNumber>{shortPositionNumber}</PositionNumber>
         <PositionText gap={"4px"}>
           Shorts
-          <ShortArrow width={12} height={8} color={theme.peppyRed} />
+          <ShortArrow width={12} height={8} color={theme.red1} />
         </PositionText>
       </PositionInfo>
       <PositionTotalValue>

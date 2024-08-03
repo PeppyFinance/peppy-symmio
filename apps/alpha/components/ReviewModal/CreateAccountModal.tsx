@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Modal } from "components/Modal";
+import { Modal, ModalBackground } from "components/Modal";
 import CreateAccount from "components/App/AccountData/CreateAccount";
 import {
   useCreateAccountModalToggle,

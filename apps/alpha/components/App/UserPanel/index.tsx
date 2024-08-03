@@ -27,7 +27,7 @@ import { IconWrapper } from "components/Icons";
 const Wrapper = styled(Card)`
   padding: 0;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 2px;
   position: relative;
 `;
 

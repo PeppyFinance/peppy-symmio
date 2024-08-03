@@ -26,6 +26,7 @@
     "react-paginate": "8.1.4",
     "react-spring": "^9.7.2",
     "react-tooltip": "^4.2.21",
+    "react-ts-tradingview-widgets": "^1.2.5",
     "rebass": "^4.0.7",
     "recharts": "2.6.2",
     "siwe": "^2.3.2",

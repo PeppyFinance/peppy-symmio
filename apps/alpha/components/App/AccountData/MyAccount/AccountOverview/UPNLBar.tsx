@@ -100,7 +100,7 @@ function usePnlValues(currency: Token) {
   else if (pnlBN.isLessThan(0))
     return {
       value: `- ${formatAmount(Math.abs(pnlBN.toNumber()))}`,
-      color: theme.peppyRed,
+      color: theme.red1,
       bgColor: theme.bgLoose,
       isLoading: false,
     };

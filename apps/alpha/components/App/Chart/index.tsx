@@ -17,7 +17,7 @@ const Wrapper = styled(Card)`
   width: 100%;
   height: 100%;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 2px;
   position: relative;
   background: rgba(233, 232, 237, 0.3) !important;
   box-shadow: 0px 0px 3px 0px rgba(254, 251, 224, 0.2) inset;

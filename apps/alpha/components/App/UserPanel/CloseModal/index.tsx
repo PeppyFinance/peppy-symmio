@@ -273,12 +273,12 @@ export default function CloseModal({
       .toFixed(2);
 
     if (valueBN.isGreaterThan(0))
-      return [`+ $${formatAmount(valueBN)}`, valuePercent, theme.peppyGreen];
+      return [`+ $${formatAmount(valueBN)}`, valuePercent, theme.green1];
     else if (valueBN.isLessThan(0))
       return [
         `- $${formatAmount(Math.abs(valueBN.toNumber()))}`,
         valuePercent,
-        theme.peppyRed,
+        theme.red1,
       ];
     return [`$${formatAmount(valueBN)}`, "0"];
   }

@@ -35,7 +35,8 @@ export const Modal = styled(BaseModal)<{
     width: 350px;
     overflow: scroll;
   `};
-  border-radius: 10px;
+  border-radius: 2px;
+  box-shadow: ${({ theme }) => theme.boxShadowModal};
 `;
 
 export const ModalBackground = styled.div`
@@ -47,8 +48,6 @@ export const ModalBackground = styled.div`
   z-index: ${Z_INDEX.modalBackdrop};
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(3px);
 `;
 
 const HeaderWrapper = styled(RowBetween)`
@@ -106,14 +105,14 @@ export const ModalHeader = ({
             <LongArrow
               width={15}
               height={12}
-              color={theme.peppyGreen}
+              color={theme.green1}
               style={{ marginLeft: "10px" }}
             />
           ) : (
             <ShortArrow
               width={15}
               height={12}
-              color={theme.peppyRed}
+              color={theme.red1}
               style={{ marginLeft: "10px" }}
             />
           )}

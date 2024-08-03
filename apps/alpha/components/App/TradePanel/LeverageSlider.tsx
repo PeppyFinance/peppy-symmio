@@ -33,6 +33,8 @@ export function LeverageSlider({
   onChange: any;
   mixedColor: string;
 }) {
+  const theme = useTheme();
+
   const marks = useMemo(() => {
     if (maxLeverage === MAX_LEVERAGE_VALUE) {
       return {
@@ -60,7 +62,7 @@ export function LeverageSlider({
 
     return range(1, maxLeverage);
   }, [maxLeverage]);
-  const theme = useTheme();
+
   return (
     <Wrapper>
       <Slider
@@ -70,7 +72,7 @@ export function LeverageSlider({
         marks={marks}
         value={value}
         trackStyle={{
-          backgroundImage: `linear-gradient(to right, #6AFF78, ${mixedColor})`,
+          backgroundImage: `linear-gradient(to right, ${theme.green1}, ${mixedColor})`,
           height: 4,
         }}
         dotStyle={{

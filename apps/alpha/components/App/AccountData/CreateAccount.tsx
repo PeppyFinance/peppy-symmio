@@ -26,23 +26,11 @@ import {
 import { WEB_SETTING } from "@symmio/frontend-sdk/config";
 import { PrimaryButton } from "components/Button";
 
-// const Wrapper = styled.div<{ modal?: boolean }>`
-//   border: none;
-//   width: 100%;
-//   min-height: 379px;
-//   border-radius: ${({ modal }) => (modal ? "10px" : "4px")};
-//   background: ${({ theme }) => theme.bg0};
-//   ${({ theme }) => theme.mediaWidth.upToLarge`
-//     width: 100%;
-//   `};
-// `;
-
 const Wrapper = styled.div<{ modal?: boolean }>`
   border: none;
   width: 100%;
   min-height: 379px;
-  border-radius: ${({ modal }) => (modal ? "10px" : "4px")};
-  boxStyling
+  border-radius: 4px;
 `;
 
 const Title = styled(RowStart)`
@@ -58,11 +46,6 @@ const ContentWrapper = styled(Column)`
   position: relative;
 `;
 
-const ImageWrapper = styled(RowCenter)`
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
 const AccountWrapper = styled(Row)`
   height: 40px;
   border-radius: 2px;
@@ -70,15 +53,13 @@ const AccountWrapper = styled(Row)`
   padding: 10px 12px;
   font-weight: 500;
   font-size: 12px;
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.border1};
+  border-radius: 2px;
   color: ${({ theme }) => theme.text0};
 `;
 
 const AccountNameWrapper = styled(AccountWrapper)`
-  color: ${({ theme }) => theme.text3};
-  border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 2px;
 `;
 
 const Input = styled.input<{ [x: string]: any }>`
@@ -89,9 +70,11 @@ const Input = styled.input<{ [x: string]: any }>`
   font-size: 12px;
   color: ${({ theme }) => theme.text0};
   padding-left: 2px;
+  font-family: "Space Grotesk";
 
   &::placeholder {
-    color: ${({ theme }) => theme.text1};
+    color: ${({ theme }) => theme.text7};
+    font-family: "Space Grotesk";
   }
 
   &:focus,
@@ -207,14 +190,6 @@ export default function CreateAccount({ onClose }: { onClose?: () => void }) {
         </RowEnd>
       </Row>
       <ContentWrapper>
-        <ImageWrapper>
-          <Image
-            src={PEPPY_FINANCE_LOGO}
-            alt="thena_logo"
-            width={150}
-            height={150}
-          />
-        </ImageWrapper>
         <AccountWrapper>
           {account && truncateAddress(account)}
           <RowEnd>

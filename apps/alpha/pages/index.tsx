@@ -5,8 +5,6 @@ import { useAppDispatch } from "@symmio/frontend-sdk/state";
 import { useUserAccounts } from "@symmio/frontend-sdk/hooks/useAccounts";
 import styled from "styled-components";
 import { Box } from "rebass/styled-components";
-import { ExternalLink } from "components/Link";
-import { APP_URL } from "constants/chains/misc";
 import { NavBarLogo } from "components/Icons";
 import { useIsMobile } from "lib/hooks/useWindowSize";
 
@@ -17,7 +15,6 @@ export const Row = styled(Box)<{
   padding?: string;
   border?: string;
   gap?: string;
-  borderRadius?: string;
 }>`
   width: ${({ width }) => width ?? "100%"};
   display: flex;
@@ -27,7 +24,6 @@ export const Row = styled(Box)<{
   justify-content: ${({ justify }) => justify ?? "flex-start"};
   padding: ${({ padding }) => padding};
   padding: ${({ padding }) => padding};
-  border-radius: ${({ borderRadius }) => borderRadius};
 `;
 
 export const RowCenter = styled(Row)`
@@ -41,7 +37,7 @@ export const BaseButton = styled(RowCenter)<{
   padding: 1rem;
   height: 100%;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 2px;
   outline: none;
   text-decoration: none;
   cursor: pointer;
@@ -77,7 +73,7 @@ export const TabHome = styled(RowCenter)`
   margin-top: 30px;
   text-align: center;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 2px;
   box-shadow: 0px 0px 6px 0px #c2f2f9, 0px 4px 4px 0px #00000040;
   text-transform: uppercase;
   font-weight: 400;
@@ -85,31 +81,6 @@ export const TabHome = styled(RowCenter)`
   background: ${({ theme }) => theme.bg9};
 
   opacity: 0px;
-`;
-
-const SymmetrialText = styled.div`
-  gap: 4px;
-  font-size: 47px;
-  font-weight: 700;
-  margin: 0px 4px 4px 4px;
-  background: linear-gradient(
-    180deg,
-    rgba(199, 241, 153, 1),
-    rgba(92, 220, 240, 1) 100%
-  );
-  text-shadow: rgb(255, 255, 255) 0px 0px 4px, rgba(0, 0, 0, 0.25) 0px 4px 4px;
-  font-family: Space Grotesk;
-  font-size: 66px;
-  font-weight: 700;
-  line-height: 59.4px;
-  text-align: center;
-
-  mix-blend-mode: plus-lighter;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: ${({ theme }) => theme.text0};
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-  `};
 `;
 
 export default function MyFunction() {
@@ -154,7 +125,6 @@ export default function MyFunction() {
           </Link>
         </TabHome>
         <div
-          className="boxStylingDarker"
           style={
             !mobileVersion
               ? { width: "100%", padding: "20px", backdropFilter: "blur(15px)" }
@@ -168,9 +138,6 @@ export default function MyFunction() {
           width={mobileVersion ? 258 : 308}
           height={mobileVersion ? 258 : 308}
         />
-        <SymmetrialText className="space-grotesk">
-          PEPPY FINANCE{" "}
-        </SymmetrialText>
       </Wrapper>
     </div>
   );

@@ -116,7 +116,7 @@ const QuoteWrap = styled(TableStructure)<{
   height: 40px;
   opacity: ${({ canceled }) => (canceled ? 0.5 : 1)};
   color: ${({ theme, liquidatePending }) =>
-    liquidatePending ? theme.peppyRed : theme.text0};
+    liquidatePending ? theme.red1 : theme.text0};
 
   background: ${({ theme, custom, liquidatePending }) =>
     liquidatePending ? theme.red5 : custom ? custom : theme.bg1};
@@ -167,7 +167,7 @@ const ExpiredStatusValue = styled.div`
 `;
 
 const LiquidatedStatusValue = styled.div`
-  color: ${({ theme }) => theme.peppyRed};
+  color: ${({ theme }) => theme.red1};
   font-size: 10px;
 `;
 
@@ -489,15 +489,15 @@ function QuoteRow({
     if (!quoteMarketPrice || quoteMarketPrice === "0")
       return ["-", theme.text0];
     if (upnlBN.isGreaterThan(0))
-      return [`+ $${formatAmount(upnlBN)}`, theme.peppyGreen];
+      return [`+ $${formatAmount(upnlBN)}`, theme.green1];
     else if (upnlBN.isLessThan(0))
-      return [`- $${formatAmount(Math.abs(upnlBN.toNumber()))}`, theme.peppyRed];
+      return [`- $${formatAmount(Math.abs(upnlBN.toNumber()))}`, theme.red1];
     return [`$${formatAmount(upnlBN)}`, theme.text1];
   }, [
     quoteMarketPrice,
     theme.text0,
-    theme.peppyGreen,
-    theme.peppyRed,
+    theme.green1,
+    theme.red1,
     theme.text1,
     upnl,
   ]);
@@ -534,13 +534,13 @@ function QuoteRow({
                 <LongArrow
                   width={15}
                   height={12}
-                  color={liquidatePending ? theme.text0 : theme.peppyGreen}
+                  color={liquidatePending ? theme.text0 : theme.green1}
                 />
               ) : (
                 <ShortArrow
                   width={15}
                   height={12}
-                  color={liquidatePending ? theme.text0 : theme.peppyRed}
+                  color={liquidatePending ? theme.text0 : theme.red1}
                 />
               )}
             </PositionTypeWrap>
@@ -662,8 +662,8 @@ function QuoteRow({
       liquidatePending,
       positionType,
       theme.text0,
-      theme.peppyGreen,
-      theme.peppyRed,
+      theme.green1,
+      theme.red1,
       theme.warning,
       name,
       id,

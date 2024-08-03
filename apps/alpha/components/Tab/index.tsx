@@ -17,7 +17,6 @@ export const TabWrapper = styled(RowCenter)`
 
 export const TabButton = styled(RowCenter)<{
   active: boolean;
-  hideOuterBorder?: boolean;
   height?: string;
 }>`
   width: 100%;
@@ -25,16 +24,13 @@ export const TabButton = styled(RowCenter)<{
   position: relative;
   text-align: center;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 2px;
   margin-right: 10px;
   text-transform: uppercase;
   font-weight: ${({ active }) => (active ? 500 : 400)};
   color: ${({ active, theme }) => (active ? theme.text8 : theme.text8)};
   background: ${({ active, theme }) =>
     active ? theme.bg9 : theme.transparent};
-  border: 3px solid
-    ${({ theme, active, hideOuterBorder }) =>
-      hideOuterBorder ? (active ? "none" : "white") : "none"};
 
   &:hover {
     cursor: ${({ active }) => (active ? "default" : "pointer")};
@@ -42,12 +38,12 @@ export const TabButton = styled(RowCenter)<{
 
 const ModalTabButton = styled(TabButton)<{ type: string }>`
   border: none;
-  border: 3px solid ${({ active }) => (active ? "none" : "white")};
+  border: 1px solid ${({ theme, active }) => (active ? "none" : theme.border1)};
   background: ${({ active, theme, type }) =>
     active
       ? type === PositionType.LONG
-        ? theme.peppyGreen
-        : theme.peppyRed
+        ? theme.green1
+        : theme.red1
       : theme.transparent};
 
   &:hover {
@@ -88,13 +84,11 @@ export function Tab({
   activeOption,
   onChange,
   height,
-  hideOuterBorder,
 }: {
   tabOptions: string[];
   activeOption: string;
   onChange: (tab: string) => void;
   height?: string;
-  hideOuterBorder?: boolean;
 }): JSX.Element {
   return (
     <TabWrapper>
@@ -104,7 +98,6 @@ export function Tab({
           active={tab === activeOption}
           onClick={() => onChange(tab)}
           height={height}
-          hideOuterBorder={!!hideOuterBorder}
         >
           {tab}
         </TabButton>
@@ -117,13 +110,11 @@ export function TabModal({
   tabOptions,
   activeOption,
   onChange,
-  hideOuterBorder,
   ...rest
 }: {
   tabOptions: string[];
   activeOption: string;
   onChange: (tab: string) => void;
-  hideOuterBorder?: boolean;
   [x: string]: any;
 }): JSX.Element {
   return (
@@ -133,7 +124,6 @@ export function TabModal({
           key={i}
           active={tab === activeOption}
           onClick={() => onChange(tab)}
-          hideOuterBorder={!!hideOuterBorder}
         >
           <div>{tab}</div>
         </ModalButton>
@@ -170,13 +160,11 @@ export function TabModalJSX({
   tabOptions,
   activeOption,
   onChange,
-  hideOuterBorder,
   ...rest
 }: {
   tabOptions: { label: string; content: string | JSX.Element }[];
   activeOption: string;
   onChange: (tab: string) => void;
-  hideOuterBorder?: boolean;
   [x: string]: any;
 }): JSX.Element {
   return (
@@ -187,7 +175,6 @@ export function TabModalJSX({
           type={tab.label}
           active={tab.label === activeOption}
           onClick={() => onChange(tab.label)}
-          hideOuterBorder={!!hideOuterBorder}
         >
           <div>{tab.content}</div>
         </ModalTabButton>

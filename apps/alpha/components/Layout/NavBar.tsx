@@ -29,7 +29,7 @@ const Wrapper = styled(Row)`
   gap: 5px;
   font-size: 16px;
   flex-wrap: nowrap;
-  padding: 10px 32px;
+  padding: 12px 16px;
   position: relative;
   z-index: ${Z_INDEX.fixed};
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -51,7 +51,6 @@ const BackgroundWrapper = styled(Wrapper)<{ newNotification?: boolean }>`
     }
   }
   padding: 0px;
-  height: 72px;
   overflow: hidden;
   position: absolute;
   background-size: cover;
@@ -185,7 +184,6 @@ export default function NavBar() {
       <>
         <BackgroundWrapper newNotification={false} />
         <MobileWrapper>
-          <NavLogo />
           <StatusWrapper>
             <Web3Status />
             <CooldownWrapper onClick={() => toggleWithdrawBarModal()}>
@@ -197,13 +195,15 @@ export default function NavBar() {
           <Menu />
         </MobileWrapper>
         {showWithdrawBarModal && <WithdrawBarModal />}
-        {showTopBanner && (
+        {/*
+        showTopBanner && (
           <InfoHeader
             onClose={setShowBanner}
             hasInfoIcon={true}
             text={bannerText}
           />
-        )}
+        )
+        */}
       </>
     );
   }
@@ -211,11 +211,10 @@ export default function NavBar() {
   function getDefaultContent() {
     return (
       <>
-        <BackgroundWrapper newNotification={isNewNotification}>
-          <NavbarBackground />
-        </BackgroundWrapper>
+        <BackgroundWrapper
+          newNotification={isNewNotification}
+        ></BackgroundWrapper>
         <Wrapper>
-          <NavLogo />
           <Items>
             <CooldownWrapper
               width={"240px"}
@@ -229,7 +228,8 @@ export default function NavBar() {
             <Menu />
           </Items>
         </Wrapper>
-        <BannerWrapper>
+        {/*
+          <BannerWrapper>
           {showTopBanner && (
             <InfoHeader
               onClose={setShowBanner}
@@ -243,6 +243,7 @@ export default function NavBar() {
             />
           )}
         </BannerWrapper>
+        */}
         {showWithdrawBarModal && <WithdrawBarModal />}
       </>
     );

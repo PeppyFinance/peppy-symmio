@@ -9,7 +9,7 @@ const SearchWrapper = styled(RowStart)`
   border-radius: 4px;
   padding: 0.2rem 0;
   height: 36px;
-  border: 1px solid ${({ theme }) => theme.text8};
+  border: 1px solid ${({ theme }) => theme.border1};
   gap: 5px;
 
   & > * {
@@ -33,7 +33,7 @@ const Input = styled.input<{
   padding-left: 2px;
 
   &::placeholder {
-    color: ${({ theme }) => theme.text8};
+    color: ${({ theme }) => theme.text7};
   }
   &:focus,
   &:hover {

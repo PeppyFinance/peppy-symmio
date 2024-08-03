@@ -26,7 +26,6 @@ export default function OrderTypeTab() {
       tabOptions={[OrderType.LIMIT, OrderType.MARKET]}
       activeOption={orderType}
       onChange={(option: string) => setOrderType(option as OrderType)}
-      hideOuterBorder
     />
   );
 }

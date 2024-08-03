@@ -46,7 +46,7 @@ const LiquidateWrap = styled(DataWrap)`
 `;
 
 const LiquidateLabel = styled(Label)`
-  color: ${({ theme }) => theme.peppyRed};
+  color: ${({ theme }) => theme.red1};
 `;
 
 export default function LiquidatedQuoteDetails({
@@ -98,12 +98,12 @@ export default function LiquidatedQuoteDetails({
       .toFixed(2);
 
     if (valueBN.isGreaterThan(0))
-      return [`+ $${formatAmount(valueBN)}`, valuePercent, theme.peppyGreen];
+      return [`+ $${formatAmount(valueBN)}`, valuePercent, theme.green1];
     else if (valueBN.isLessThan(0))
       return [
         `- $${formatAmount(Math.abs(valueBN.toNumber()))}`,
         valuePercent,
-        theme.peppyRed,
+        theme.red1,
       ];
     return [`$${formatAmount(valueBN)}`, valuePercent, theme.text1];
   }
@@ -134,9 +134,9 @@ export default function LiquidatedQuoteDetails({
               <QuoteData>
                 {positionType}
                 {positionType === PositionType.LONG ? (
-                  <LongArrow width={16} height={12} color={theme.peppyGreen} />
+                  <LongArrow width={16} height={12} color={theme.green1} />
                 ) : (
-                  <ShortArrow width={16} height={12} color={theme.peppyRed} />
+                  <ShortArrow width={16} height={12} color={theme.red1} />
                 )}
               </QuoteData>
             </RowComponent>

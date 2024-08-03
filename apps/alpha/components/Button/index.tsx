@@ -58,8 +58,7 @@ export const PrimaryButton = styled(BaseButton)<{ height?: string | number }>`
   font-size: 14px;
   font-weight: 600;
   font-bold: 700;
-  border-radius: 10px;
-  box-shadow: 0px 0px 6px 0px #c2f2f9, 0px 4px 4px 0px #00000040;
+  border-radius: 2px;
   text-transform: uppercase;
   height: ${({ height }) => (height ? height : "48px")};
   background: ${({ theme }) => theme.bg9};
@@ -100,7 +99,7 @@ export const SecondaryButton = styled(PrimaryButton)`
 
 export const ButtonEmpty = styled(BaseButton)`
   background-color: transparent;
-  color: ${({ theme }) => theme.peppyRed};
+  color: ${({ theme }) => theme.red1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -256,9 +255,9 @@ export const PositionActionButton = styled(SecondaryButton)<{
   ${({ liquidatePending, theme }) =>
     liquidatePending &&
     `
-    color: ${theme.peppyRed};
+    color: ${theme.red1};
     background: ${theme.red5};
-    border-color: ${theme.peppyRed};
+    border-color: ${theme.red1};
 
     &:hover {
     background: ${lighten(0.05, theme.red5)};

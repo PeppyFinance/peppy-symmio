@@ -10,7 +10,7 @@ import {
   toBN,
 } from "@symmio/frontend-sdk/utils/numbers";
 
-import { Name } from ".";
+import { Name, Separator } from ".";
 import { Row } from "components/Row";
 import Column from "components/Column";
 import { Info as InfoIcon } from "components/Icons";
@@ -25,7 +25,7 @@ const Value = styled.div<{
   color?: string;
   size?: string;
 }>`
-  text-align:center;
+  text-align: center;
   color: ${({ theme, color }) => color ?? theme.text0};
   ${({ size }) =>
     size &&
@@ -44,17 +44,6 @@ const StyledInfoIcon = styled(InfoIcon)`
   height: 12px;
   margin: 4px 4px 0px 4px;
   cursor: default;
-`;
-
-const Separator = styled.div`
-  width: 2px;
-  height: 40px;
-  border-radius: 4px;
-  margin-right: 2px;
-  background: white;
-    ${({ theme }) => theme.mediaWidth.upToExtraLarge` 
-    display: none;
-  `}
 `;
 
 export default function MarketFundingRate() {
@@ -97,9 +86,7 @@ export default function MarketFundingRate() {
                   )}%`
                 : "-"}
             </Value>
-            (LONG)
-          </DataRow>
-          <DataRow>
+            /
             <Value size={"12px"} color={shortColor}>
               {fundingRate
                 ? `${formatAmount(
@@ -107,7 +94,6 @@ export default function MarketFundingRate() {
                   )}%`
                 : "-"}
             </Value>
-            (SHORT)
           </DataRow>
         </Column>
       </Column>
@@ -134,6 +120,6 @@ function useColor(value: string) {
   const valueBN = toBN(value);
 
   if (valueBN.isEqualTo(0)) return theme.text0;
-  else if (valueBN.isGreaterThan(0)) return theme.peppyGreen;
-  else return theme.peppyRed;
+  else if (valueBN.isGreaterThan(0)) return theme.green1;
+  else return theme.red1;
 }

@@ -17,11 +17,10 @@ const Wrapper = styled.div`
   flex-flow: column nowrap;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/images/neonBg.png");
+  background-color: ${({ theme }) => theme.bg0};
 `;
 const HeaderWrap = styled.div`
   width: 100%;
-  margin-bottom: 16px;
   top: 0;
   z-index: 300;
   background: ${({ theme }) => theme.bgTransparent};

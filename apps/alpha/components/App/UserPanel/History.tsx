@@ -192,9 +192,9 @@ function QuoteRow({ quote }: { quote: Quote }): JSX.Element | null {
   const [value, color] = useMemo(() => {
     const pnlBN = toBN(pnl);
     if (pnlBN.isGreaterThan(0))
-      return [`+ $${formatAmount(pnlBN)}`, theme.peppyGreen];
+      return [`+ $${formatAmount(pnlBN)}`, theme.green1];
     else if (pnlBN.isLessThan(0))
-      return [`- $${formatAmount(Math.abs(pnlBN.toNumber()))}`, theme.peppyRed];
+      return [`- $${formatAmount(Math.abs(pnlBN.toNumber()))}`, theme.red1];
     return [`$${formatAmount(pnlBN)}`, theme.text1];
   }, [pnl, theme]);
   const leverage = useQuoteLeverage(quote);
@@ -233,9 +233,9 @@ function QuoteRow({ quote }: { quote: Quote }): JSX.Element | null {
           <RowStart>
             <PositionTypeWrap>
               {positionType === PositionType.LONG ? (
-                <LongArrow width={16} height={12} color={theme.peppyGreen} />
+                <LongArrow width={16} height={12} color={theme.green1} />
               ) : (
-                <ShortArrow width={16} height={12} color={theme.peppyRed} />
+                <ShortArrow width={16} height={12} color={theme.red1} />
               )}
             </PositionTypeWrap>
             <MarketName>
@@ -284,8 +284,8 @@ function QuoteRow({ quote }: { quote: Quote }): JSX.Element | null {
       quoteStatus,
       activeDetail,
       positionType,
-      theme.peppyGreen,
-      theme.peppyRed,
+      theme.green1,
+      theme.red1,
       name,
       id,
       leverage,

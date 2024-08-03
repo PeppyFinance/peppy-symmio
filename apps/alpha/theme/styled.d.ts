@@ -2,6 +2,7 @@ import { ThemedCssFunction } from "styled-components/macro";
 import { SupportedThemes } from "theme";
 
 export type Color = string;
+
 export interface Colors {
   themeName: SupportedThemes;
 
@@ -17,6 +18,8 @@ export interface Colors {
   text4: Color;
   text5: Color;
   text6: Color;
+  text7: Color;
+  text8: Color;
 
   // backgrounds
   bg: Color;
@@ -78,7 +81,7 @@ export interface Colors {
   red3: Color;
   red5: Color;
   red6: Color;
-  peppyGreen: Color;
+  green1: Color;
   green2: Color;
   green3: Color;
   green4: Color;
@@ -113,8 +116,8 @@ export interface Colors {
 export type Shadow = string;
 export interface Shadows {
   shadow1: Shadow;
-  boxShadow1: Shadow;
-  boxShadow2: Shadow;
+  boxShadowDropdown: Shadow;
+  boxShadowModal: Shadow;
 }
 
 declare module "styled-components" {

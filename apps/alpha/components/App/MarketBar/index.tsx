@@ -19,8 +19,8 @@ import MarketFundingRate from "./MarketFundingRate";
 
 const Wrapper = styled(Row)`
   min-height: 56px;
-  padding: 16px 12px;
-  border-radius: 10px;
+  padding: 6px 12px;
+  border-radius: 2px;
   z-index: 10;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     flex-direction: column;   
@@ -60,24 +60,25 @@ const HedgerInfos = styled(RowBetween)`
   `};
 `;
 
-const Separator = styled.div`
-  width: 2px;
+export const Separator = styled.div`
+  width: 1px;
   height: 40px;
   border-radius: 4px;
   margin-right: 2px;
-  background: white;
-  ${({ theme }) => theme.mediaWidth.upToExtraLarge` 
-    display: none;
-  `}
+  background: ${({ theme }) => theme.text7};
 `;
 
 export const Name = styled.div<{
   textAlign?: string;
   textAlignMedium?: string;
 }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-wrap: nowrap;
   font-weight: 400;
   font-size: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   text-align: ${({ textAlign }) => textAlign ?? "center"};
   color: ${({ theme }) => theme.text7};
   ${({ theme, textAlignMedium }) => theme.mediaWidth.upToMedium`
@@ -89,10 +90,11 @@ export const Value = styled.div<{
   textAlign?: string;
   textAlignMedium?: string;
 }>`
+  text-wrap: nowrap;
   font-weight: 500;
   font-size: 12px;
   text-align: ${({ textAlign }) => textAlign ?? "center"};
-  color: ${({ theme }) => theme.text7};
+  color: ${({ theme }) => theme.text0};
   ${({ theme, textAlignMedium }) => theme.mediaWidth.upToMedium`
     text-align: ${textAlignMedium ?? "center"};
   `};
@@ -116,9 +118,10 @@ export default function MarketBar() {
 
   return (
     <Wrapper className="boxStyling">
-      <DataWrap>
+      <div style={{ marginRight: 24 }}>
         <MarketInfo />
-        <Separator />
+      </div>
+      <DataWrap>
         <HedgerInfos>
           <Column>
             <Name>Last Price</Name>
@@ -165,9 +168,9 @@ export default function MarketBar() {
           <Separator />
           <MarketFundingRate />
           <Separator />
+          <MarketDepths />
         </HedgerInfos>
       </DataWrap>
-      <MarketDepths />
     </Wrapper>
   );
 }

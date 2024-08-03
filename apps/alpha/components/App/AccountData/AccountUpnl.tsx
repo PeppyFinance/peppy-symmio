@@ -21,9 +21,9 @@ export default function AccountUpnl({ size }: { size?: string }) {
   const [value, color] = useMemo(() => {
     const upnlBN = toBN(upnl);
     if (upnlBN.isGreaterThan(0))
-      return [`+ $${formatAmount(upnlBN)}`, theme.peppyGreen];
+      return [`+ $${formatAmount(upnlBN)}`, theme.green1];
     else if (upnlBN.isLessThan(0))
-      return [`- $${formatAmount(Math.abs(upnlBN.toNumber()))}`, theme.peppyRed];
+      return [`- $${formatAmount(Math.abs(upnlBN.toNumber()))}`, theme.red1];
     return [`$${formatAmount(upnlBN)}`, undefined];
   }, [upnl, theme]);
 

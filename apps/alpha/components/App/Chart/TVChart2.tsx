@@ -42,19 +42,11 @@ export default function TradingViewWidget({ symbol }: { symbol: string }) {
         document.getElementById("tradingview_c6655") &&
         !!window.TradingView
       ) {
-        new window.TradingView.widget({
+        const widget = new window.TradingView.widget({
           symbol,
           autosize: true,
-          interval: "1",
-          timezone: "exchange",
-          theme: "dark",
-          style: "1",
-          locale: "en",
-          toolbar_bg: "#f1f3f6",
-          enable_publishing: false,
-          hide_side_toolbar: isMobile ? true : false,
-          withdateranges: isMobile ? false : true,
           container_id: "tradingview_c6655",
+          theme: "dark",
         });
       }
     }

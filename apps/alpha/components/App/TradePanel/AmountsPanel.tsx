@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { mix } from "polished";
 
 import { WEB_SETTING } from "@symmio/frontend-sdk/config";
@@ -85,6 +85,7 @@ const LeverageInput = styled(InputAmount)`
 `;
 
 export default function AmountsPanel() {
+  const theme = useTheme();
   const { chainId } = useActiveWagmi();
   const COLLATERAL_TOKEN = useCollateralToken();
   const collateralCurrency = useGetTokenWithFallbackChainId(
@@ -154,7 +155,7 @@ export default function AmountsPanel() {
     }
   }, [debouncedLeverage, customLeverage]);
 
-  const mixedColor = mix(leverage / maxLeverage, "#fd4545", "#6AFF78");
+  const mixedColor = mix(leverage / maxLeverage, theme.red1, theme.green1);
 
   const handleCustomLeverage = useCallback(
     (e: any) => {

@@ -40,11 +40,7 @@ export default function Logos({
     return 20;
   };
   return loading ? (
-    <ShimmerAnimation
-      width={width ?? "46px"}
-      height={"24px"}
-      borderRadius={"12px"}
-    />
+    <ShimmerAnimation width={width ?? "46px"} height={"24px"} />
   ) : (
     <Wrapper width={width} bg={bg} border={border}>
       <Image

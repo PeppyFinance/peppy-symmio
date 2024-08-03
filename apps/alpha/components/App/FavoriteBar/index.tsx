@@ -7,13 +7,13 @@ import { Market } from "@symmio/frontend-sdk/types/market";
 import { useFavoriteMarkets } from "@symmio/frontend-sdk/hooks/useMarkets";
 
 import { Row, RowCenter } from "components/Row";
-import { GradientStar } from "components/Icons";
+import { Star } from "components/Icons";
 import BlinkingPrice from "components/App/FavoriteBar/BlinkingPrice";
 
 const Wrapper = styled(Row)`
   position: relative;
   min-height: 50px;
-  border-radius: 10px;
+  border-radius: 2px;
 `;
 
 const FavoritesWrap = styled(Row)`
@@ -25,13 +25,13 @@ const FavoritesWrap = styled(Row)`
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1 1 0%;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-left: 12px;
 `;
 
 const Nav = styled.div<{ direction: "right" | "left" }>`
   position: absolute;
-  ${({ direction }) => (direction === "left" ? "left: 42px" : "right: 0px")};
+  ${({ direction }) => (direction === "left" ? "left: 48px" : "right: 0px")};
   top: 0;
   height: 100%;
   z-index: 99;
@@ -120,7 +120,8 @@ export default function FavoriteBar() {
 
   return (
     <Wrapper className="boxStyling">
-      <GradientStar
+      <Star
+        isFavorite={true}
         style={{
           zIndex: 99,
           marginLeft: "16px",

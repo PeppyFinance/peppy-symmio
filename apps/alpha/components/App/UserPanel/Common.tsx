@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   overflow-y: scroll;
   margin-bottom: 50px;
 
-
   ${({ theme }) => theme.mediaWidth.upToMedium`
     margin-bottom: 44px;
   `};
@@ -22,7 +21,7 @@ export const PositionTypeWrap = styled(RowCenter)<{
   width: 20px;
   height: 40px;
   background: ${({ theme, liquidatePending }) =>
-    liquidatePending ? theme.peppyRed : theme.bg7};
+    liquidatePending ? theme.red1 : theme.bg7};
   margin-right: 8px;
 `;
 
@@ -31,7 +30,7 @@ export const LeverageWrap = styled(RowCenter)<{ liquidatePending?: boolean }>`
   padding: 2px 8px;
   height: 16px;
   background: ${({ theme, liquidatePending }) =>
-    liquidatePending ? theme.peppyRed : theme.bg1};
+    liquidatePending ? theme.red1 : theme.bg1};
   color: ${({ theme, liquidatePending }) =>
     liquidatePending ? theme.text0 : theme.text1};
   margin-left: 8px;
@@ -78,5 +77,5 @@ export const QuoteStatusValue = styled.div<{
   expired: boolean;
 }>`
   color: ${({ theme, liq, expired }) =>
-    liq ? theme.peppyRed : expired ? theme.warning : theme.text1};
+    liq ? theme.red1 : expired ? theme.warning : theme.text1};
 `;

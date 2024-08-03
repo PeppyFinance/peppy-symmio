@@ -36,8 +36,8 @@ export default function GuideTwo({
     ? "Available"
     : "Unavailable";
   const partialCloseColor = !toBN(maxPartiallyClose).isEqualTo(0)
-    ? theme.peppyGreen
-    : theme.peppyRed;
+    ? theme.green1
+    : theme.red1;
 
   function getItemLabel(
     text: string,
@@ -99,21 +99,21 @@ export default function GuideTwo({
             .div(maxClose)
             .times(100)
             .toFixed(2)}
-          color={theme.peppyRed}
+          color={theme.red1}
         />
         <Child
           width={toBN(minPositionSize).div(maxClose).times(100).toFixed(2)}
           color={theme.bg7}
         />
-        <Child width={"1"} color={theme.peppyRed} />
+        <Child width={"1"} color={theme.red1} />
       </Full>
 
       <Item
         label={getItemLabel(
           "Full Close:",
-          theme.peppyRed,
+          theme.red1,
           "Unavailable",
-          theme.peppyRed
+          theme.red1
         )}
         amount={
           <Amount>

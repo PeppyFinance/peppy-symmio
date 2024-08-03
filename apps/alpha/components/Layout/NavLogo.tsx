@@ -51,11 +51,6 @@ export default function NavLogo() {
             height={mobileVersion ? 40 : 58}
           />
         </ExternalLink>
-        {!mobileVersion && (
-          <SymmetrialText className="space-grotesk">
-            PEPPY FINANCE{" "}
-          </SymmetrialText>
-        )}
       </Wrapper>
     </div>
   );

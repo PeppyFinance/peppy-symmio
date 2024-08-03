@@ -35,8 +35,8 @@ export default function GuideThree({
     ? "Available"
     : "Unavailable";
   const maxOrLiquidColor = toBN(liquidationAfterClose).isEqualTo(0)
-    ? theme.peppyGreen
-    : theme.peppyRed;
+    ? theme.green1
+    : theme.red1;
 
   function getItemLabel(
     text: string,
@@ -109,7 +109,7 @@ export default function GuideThree({
           "Partial close:",
           theme.text0,
           "Unavailable",
-          theme.peppyRed
+          theme.red1
         )}
         amount={
           <Amount>

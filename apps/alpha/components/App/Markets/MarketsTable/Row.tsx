@@ -92,9 +92,9 @@ const MarketName = styled.span`
 const ColorLabel = styled(Row)<{ color: "green" | "red" | "gray" }>`
   color: ${({ color, theme }) =>
     color === "green"
-      ? theme.peppyGreen
+      ? theme.green1
       : color === "red"
-      ? theme.peppyRed
+      ? theme.red1
       : theme.text2};
 `;
 

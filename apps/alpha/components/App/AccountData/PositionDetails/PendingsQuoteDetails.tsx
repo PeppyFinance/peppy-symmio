@@ -133,9 +133,9 @@ export default function PendingQuoteDetails({
                 {positionType}
 
                 {positionType === PositionType.LONG ? (
-                  <LongArrow width={16} height={12} color={theme.peppyGreen} />
+                  <LongArrow width={16} height={12} color={theme.green1} />
                 ) : (
-                  <ShortArrow width={16} height={12} color={theme.peppyRed} />
+                  <ShortArrow width={16} height={12} color={theme.red1} />
                 )}
               </QuoteData>
             </RowComponent>

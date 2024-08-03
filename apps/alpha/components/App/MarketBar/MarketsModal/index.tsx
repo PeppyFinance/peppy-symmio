@@ -43,9 +43,10 @@ const InlineModal = styled(Card)<{ isOpen: boolean; height?: string }>`
   z-index: ${Z_INDEX.modal};
   transform: translate(-1px, 29px);
   text-align: start;
-  border-radius: 10px;
-  border: 2px solid ${({ theme }) => theme.text8};
+  border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.border1};
   display: ${(props) => (props.isOpen ? "flex" : "none")};
+  box-shadow: ${({ theme }) => theme.boxShadowDropdown};
 
   & > * {
     &:last-child {
@@ -61,6 +62,7 @@ const InlineModal = styled(Card)<{ isOpen: boolean; height?: string }>`
 const Modal = styled(ModalBody)`
   border: none;
   text-align: start;
+  box-shadow: ${({ theme }) => theme.boxShadowDropdown};
 `;
 
 const UpperRow = styled(RowStart)`
@@ -130,8 +132,6 @@ export function MarketsModal({
       <ModalWrapper>{getInnerContent()}</ModalWrapper>
     </Modal>
   ) : (
-    <InlineModal className="boxStylingDarker" isOpen={isOpen}>
-      {getInnerContent()}
-    </InlineModal>
+    <InlineModal isOpen={isOpen}>{getInnerContent()}</InlineModal>
   );
 }
