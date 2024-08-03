@@ -70,11 +70,10 @@ const Input = styled.input<{ [x: string]: any }>`
   font-size: 12px;
   color: ${({ theme }) => theme.text0};
   padding-left: 2px;
-  font-family: "Space Grotesk";
+  font-family: ${({ theme }) => theme.fonts.main};
 
   &::placeholder {
     color: ${({ theme }) => theme.text7};
-    font-family: "Space Grotesk";
   }
 
   &:focus,
@@ -101,6 +100,10 @@ const DescriptionText = styled.div`
   text-align: center;
   margin-top: 16px;
 
+  color: ${({ theme }) => theme.text7};
+`;
+
+const AddressText = styled.div`
   color: ${({ theme }) => theme.text7};
 `;
 
@@ -191,7 +194,7 @@ export default function CreateAccount({ onClose }: { onClose?: () => void }) {
       </Row>
       <ContentWrapper>
         <AccountWrapper>
-          {account && truncateAddress(account)}
+          <AddressText>{account && truncateAddress(account)}</AddressText>
           <RowEnd>
             <Wallet />
           </RowEnd>

@@ -114,15 +114,24 @@ export interface Colors {
 }
 
 export type Shadow = string;
+
 export interface Shadows {
   shadow1: Shadow;
   boxShadowDropdown: Shadow;
   boxShadowModal: Shadow;
 }
 
+export type Font = string;
+
+export interface Fonts {
+  main: Font;
+}
+
 declare module "styled-components" {
   export interface DefaultTheme extends Colors, Shadows {
     grids: Grids;
+
+    fonts: Fonts;
 
     // media queries
     mediaWidth: {

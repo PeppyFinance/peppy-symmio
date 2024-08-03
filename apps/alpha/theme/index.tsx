@@ -215,6 +215,11 @@ function theme(themeName: SupportedThemes): DefaultTheme {
     //shadows
     ...shadows(themeName),
 
+    //fonts
+    fonts: {
+      main: "Space Grotesk, sans-serif",
+    },
+
     // media queries
     mediaWidth: mediaWidthTemplates,
   };
@@ -271,7 +276,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: ${({ theme }) => theme.fonts.main};
     font-size: 16px;
     font-weight:700;
     border-radius: 2px;
@@ -300,13 +305,6 @@ export const ThemedGlobalStyle = createGlobalStyle`
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-  }
-
-  .space-grotesk {
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
   }
 
   .boxStyling {
