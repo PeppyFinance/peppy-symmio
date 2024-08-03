@@ -4,24 +4,9 @@ import { BaseButton } from "components/Button";
 import { useCallback } from "react";
 
 export const GradientColorButton = styled(BaseButton)`
-  height: 40px; 
-  border-radius: 25px;
+  height: 40px;
+  border-radius: 2px;
   background: ${({ theme }) => theme.bg9};
-
-  &:focus,
-  &:hover,
-  &:active {
-    background: ${({ theme }) => theme.pinkGrad};
-
-    cursor: ${({ disabled }) => !disabled && "pointer"};
-  }
-
-  ${({ disabled }) =>
-    disabled &&
-    `
-      cursor: default;
-
-  `}
 `;
 
 export const GradientButtonLabel = styled.span<{ whiteText?: boolean }>`

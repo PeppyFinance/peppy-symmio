@@ -131,20 +131,13 @@ const Button = styled.div`
   margin: 2px 0px;
   margin-right: 2px;
   border-radius: 2px;
-  box-shadow: 0px 0px 6px 0px #c2f2f9, 0px 4px 4px 0px #00000040;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
   text-align: center;
   color: ${({ theme }) => theme.text8};
   background: ${({ theme }) => theme.bg9};
-
   padding: 10px 0px;
-
-  &:focus,
-  &:hover {
-    background: ${({ theme }) => theme.hoverGrad};
-  }
 `;
 
 const ChooseAccountButton = styled(Button)`
