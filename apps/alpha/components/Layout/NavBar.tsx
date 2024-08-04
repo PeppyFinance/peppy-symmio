@@ -10,12 +10,8 @@ import { Row } from "components/Row";
 import Web3Network from "components/Web3Network";
 
 import Web3Status from "components/Web3Status";
-import { InfoHeader } from "components/InfoHeader";
-import { NavbarBackground } from "components/Icons";
-import NavLogo from "./NavLogo";
 import WithdrawCooldown from "components/App/AccountData/WithdrawCooldown";
 import Notifications from "components/Notifications";
-import Warning from "./Warning";
 import Menu from "./Menu";
 import Column from "components/Column";
 import {
@@ -29,7 +25,7 @@ const Wrapper = styled(Row)`
   gap: 5px;
   font-size: 16px;
   flex-wrap: nowrap;
-  padding: 12px 16px;
+  padding: 8px;
   position: relative;
   z-index: ${Z_INDEX.fixed};
   ${({ theme }) => theme.mediaWidth.upToSmall`

@@ -11,14 +11,14 @@ import { Star } from "components/Icons";
 import BlinkingPrice from "components/App/FavoriteBar/BlinkingPrice";
 
 const Wrapper = styled(Row)`
-  min-height: 50px;
+  min-height: 42px;
   border-radius: 2px;
 `;
 
 const FavoritesWrap = styled(Row)`
   width: unset;
   height: 100%;
-  padding: 8px 0px;
+  padding: 4px 0px;
   position: relative;
   z-index: 1;
   overflow-x: auto;

@@ -18,8 +18,8 @@ import MarketDepths from "./MarketDepths";
 import MarketFundingRate from "./MarketFundingRate";
 
 const Wrapper = styled(Row)`
-  min-height: 56px;
-  padding: 6px 12px;
+  min-height: 48px;
+  padding: 0px 12px;
   border-radius: 2px;
   z-index: 10;
   ${({ theme }) => theme.mediaWidth.upToLarge`
@@ -65,7 +65,7 @@ export const Separator = styled.div`
   height: 40px;
   border-radius: 4px;
   margin-right: 2px;
-  background: ${({ theme }) => theme.text7};
+  background: ${({ theme }) => theme.border1};
 `;
 
 export const Name = styled.div<{
@@ -123,6 +123,7 @@ export default function MarketBar() {
       </div>
       <DataWrap>
         <HedgerInfos>
+          <Separator />
           <Column>
             <Name>Last Price</Name>
             {activeMarket ? (
@@ -169,6 +170,7 @@ export default function MarketBar() {
           <MarketFundingRate />
           <Separator />
           <MarketDepths />
+          <Separator />
         </HedgerInfos>
       </DataWrap>
     </Wrapper>
