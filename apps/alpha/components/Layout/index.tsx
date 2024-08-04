@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   flex-flow: column nowrap;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: ${({ theme }) => theme.bg0};
+  background-color: ${({ theme }) => theme.bg};
 `;
 const HeaderWrap = styled.div`
   width: 100%;

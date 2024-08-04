@@ -74,7 +74,7 @@ function colors(): Colors {
       text6: "#dce7eb",
 
       // backgrounds / greys
-      bg: "#0F0E1A",
+      bg: "#11141d",
       bg0: "#131722",
       bg1: "#181C27",
       bg2: "#363A45",
@@ -260,7 +260,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-  background-color: ${({ theme }) => theme.bg0};
+    background-color: ${({ theme }) => theme.bg};
   }
 
   a {
