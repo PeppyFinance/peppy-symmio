@@ -29,7 +29,8 @@ const InnerContentWrapper = styled(Row)`
   height: 38px;
   max-width: 175px;
   border-radius: 2px;
-  border: 1px solid ${({ theme }) => theme.text7};
+  background: ${({ theme }) => theme.bg0};
+  border: 1.5px solid ${({ theme }) => theme.bg};
 `;
 
 const Chevron = styled(ChevronDown)<{ open: boolean }>`

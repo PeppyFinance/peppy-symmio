@@ -15,11 +15,11 @@ import { Star } from "components/Icons";
 
 const Row = styled(RowStart)<{ active: boolean }>`
   z-index: 0;
-  background: ${({ theme, active }) => (active ? theme.bg3 : "inherit")};
+  background: ${({ theme, active }) => (active ? theme.bg2 : "inherit")};
   text-align: start;
   &:hover {
     cursor: pointer;
-    background: ${({ theme }) => theme.bg9};
+    background: ${({ theme }) => theme.bg3};
   }
 `;
 
@@ -40,9 +40,8 @@ const Text = styled.div<{ active?: boolean; width?: string }>`
   color: ${({ theme, active }) => (active ? theme.text0 : theme.text8)};
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
-      font-size: 12px;
-  
-    `};
+    font-size: 12px;
+  `};
 `;
 
 export default function MarketRow({

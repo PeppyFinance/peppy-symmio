@@ -43,7 +43,7 @@ const StyledNavButton = styled.button<{ direction: "right" | "left" }>`
   width: 48px;
   height: 100%;
   background: ${({ theme }) => css`
-    linear-gradient(90deg, rgba(76, 70, 110, 0.3) 50%, #ffffff00 100%);
+    linear-gradient(90deg, ${theme.bg2} 50%, #ffffff00 100%);
   `};
   transform: ${({ direction }) =>
     direction === "left" ? "rotate(0deg)" : "rotate(180deg)"};
@@ -105,6 +105,7 @@ const InnerWrapper = styled.div`
   position: relative;
   flex: 1;
   overflow-y: hidden;
+  border-left: 1px solid ${({ theme }) => theme.border1};
 `;
 
 export default function FavoriteBar() {

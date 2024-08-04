@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Column from "components/Column";
 
 export const Card = styled(Column)`
-  background: ${({ theme }) => theme.bg0};
   border-radius: 2px;
   padding: 24px;
   padding-top: 20px;

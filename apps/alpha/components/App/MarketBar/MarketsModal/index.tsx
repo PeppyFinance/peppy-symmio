@@ -47,6 +47,7 @@ const InlineModal = styled(Card)<{ isOpen: boolean; height?: string }>`
   border: 1px solid ${({ theme }) => theme.border1};
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   box-shadow: ${({ theme }) => theme.boxShadowDropdown};
+  background: ${({ theme }) => theme.bg1};
 
   & > * {
     &:last-child {

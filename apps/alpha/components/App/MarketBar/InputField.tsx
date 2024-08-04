@@ -6,17 +6,19 @@ import { useState, useEffect } from "react";
 
 const SearchWrapper = styled(RowStart)`
   flex-flow: row nowrap;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 0.2rem 0;
   height: 36px;
-  border: 1px solid ${({ theme }) => theme.border1};
+  border: 1.5px solid ${({ theme }) => theme.bg};
   gap: 5px;
+  background: ${({ theme }) => theme.bg0};
 
   & > * {
     &:first-child {
       width: fit-content;
       padding: 0 0.5rem;
-      border-right: 1px solid ${({ theme }) => theme.bg8};
+      border-right: 1px solid ${({ theme }) => theme.border1};
+      height: 90%;
     }
   }
 `;

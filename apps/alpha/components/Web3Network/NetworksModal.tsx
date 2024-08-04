@@ -43,7 +43,6 @@ const InlineModal = styled(Card)<{ isOpen: boolean; height?: string }>`
   position: absolute;
   z-index: ${Z_INDEX.modal};
   transform: translate(-193px, 29px);
-  background: ${({ theme }) => theme.bg1};
   border: 2px solid ${({ theme }) => theme.bg6};
   display: ${(props) => (props.isOpen ? "flex" : "none")};
 
