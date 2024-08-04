@@ -76,6 +76,10 @@ export const CalculationResult = styled.div`
   `}
 `;
 
+export const Title = styled.div`
+  color: ${({ theme }) => theme.text7};
+`;
+
 export const RightWrapper = styled.div``;
 
 export const BalanceTitle = styled.span`
@@ -319,7 +323,7 @@ export function CustomInputBox2({
   return (
     <Wrapper>
       <RowBetween>
-        <div>{title}</div>
+        <Title>{title}</Title>
         <RowEnd>
           <Balance disabled={disabled} onClick={handleClick}>
             <BalanceTitle>{balanceTitle || "Balance:"} </BalanceTitle>{" "}

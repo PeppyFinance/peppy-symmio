@@ -41,39 +41,30 @@ import { CustomInputBox2 as CollateralInput } from "components/InputBox";
 import { RowStart } from "components/Row";
 
 const CollateralWrap = styled.div`
-  & > * {
-    &:first-child {
-      margin-bottom: 4px;
-    }
-    &:nth-child(2) {
-      position: relative;
-      margin: 0 auto;
-      margin-top: -17px;
-    }
-    &:nth-child(3) {
-      margin-top: -13px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
 const LeverageWrap = styled.div`
+  width: 100%;
   font-weight: 400;
   font-size: 12px;
   border-radius: 4px;
-  padding: 8px 10px;
+  padding: 8px 12px;
   height: 70px;
+  margin-top: 8px;
 
   color: ${({ theme }) => theme.text7};
 `;
 
 const LeverageValue = styled(RowStart)`
-  width: 84px;
-  height: 28px;
+  width: 72px;
+  height: 36px;
   font-size: 12px;
   padding: 8px;
   padding-left: 12px;
-  border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.text7};
+  border-radius: 2px;
+  border: 1px solid ${({ theme }) => theme.border1};
 `;
 
 const LeverageInput = styled(InputAmount)`
@@ -81,7 +72,13 @@ const LeverageInput = styled(InputAmount)`
   font-size: 14px;
   text-align: left;
   background: "transparent";
-  color: ${({ theme }) => theme.text7};
+  font-family: ${({ theme }) => theme.fonts.main};
+  color: ${({ theme }) => theme.text0};
+`;
+
+const LeverageSliderWrapper = styled.div`
+  flex: 1;
+  margin-right: 16px;
 `;
 
 export default function AmountsPanel() {
@@ -221,30 +218,34 @@ export default function AmountsPanel() {
           onEnterPress={onEnterPress}
         />
 
-        <LeverageValue>
-          <LeverageInput
-            value={
-              !customLeverage || toBN(customLeverage).lt(0)
-                ? ""
-                : customLeverage
-            }
-            onChange={(e) => handleCustomLeverage(e)}
-            placeholder={customLeverage ? customLeverage.toString() : "1"}
-            onBlur={() => {
-              if (!customLeverage) setCustomLeverage(MIN_LEVERAGE_VALUE);
-            }}
-          />
-          <LeverageIcon width={10} height={10} color={mixedColor} />
-        </LeverageValue>
-
         <LeverageWrap>
           <div>Leverage</div>
-          <LeverageSlider
-            value={leverage}
-            maxLeverage={maxLeverage}
-            onChange={setLeverage}
-            mixedColor={mixedColor}
-          />
+          <div style={{ display: "flex", width: "100%" }}>
+            <LeverageSliderWrapper>
+              <LeverageSlider
+                value={leverage}
+                maxLeverage={maxLeverage}
+                onChange={setLeverage}
+                mixedColor={mixedColor}
+              />
+            </LeverageSliderWrapper>
+
+            <LeverageValue>
+              <LeverageInput
+                value={
+                  !customLeverage || toBN(customLeverage).lt(0)
+                    ? ""
+                    : customLeverage
+                }
+                onChange={(e) => handleCustomLeverage(e)}
+                placeholder={customLeverage ? customLeverage.toString() : "1"}
+                onBlur={() => {
+                  if (!customLeverage) setCustomLeverage(MIN_LEVERAGE_VALUE);
+                }}
+              />
+              <LeverageIcon width={10} height={10} color={mixedColor} />
+            </LeverageValue>
+          </div>
         </LeverageWrap>
       </CollateralWrap>
 
