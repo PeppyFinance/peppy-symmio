@@ -40,7 +40,7 @@ import {
   useActiveAccountAddress,
 } from "@symmio/frontend-sdk/state/user/hooks";
 
-import { Row, RowBetween, RowStart } from "components/Row";
+import { Row, RowStart } from "components/Row";
 import {
   EmptyPosition,
   LongArrow,
@@ -58,6 +58,8 @@ import {
   MarketName,
   QuoteStatusValue,
   EmptyRow,
+  TableStructure,
+  HeaderWrap,
 } from "./Common";
 import { PositionActionButton } from "components/Button";
 import CloseModal, { useInstantClosePosition } from "./CloseModal/index";
@@ -66,37 +68,6 @@ import Column from "components/Column";
 import PositionDetails from "components/App/AccountData/PositionDetails";
 import { useCheckQuoteIsExpired } from "lib/hooks/useCheckQuoteIsExpired";
 import { InstantCloseStatus } from "@symmio/frontend-sdk/state/quotes/types";
-
-const TableStructure = styled(RowBetween)<{ active?: boolean }>`
-  width: 100%;
-  color: ${({ theme }) => theme.text8};
-  font-size: 12px;
-  font-weight: 400;
-
-  & > * {
-    width: 12%;
-
-    &:first-child {
-      width: 25%;
-    }
-    &:nth-last-child(2) {
-      width: 15%;
-      text-align: right;
-    }
-  }
-`;
-
-const HeaderWrap = styled(TableStructure)`
-  color: ${({ theme }) => theme.text8};
-  font-weight: 500;
-  margin-bottom: 12px;
-
-  & > * {
-    &:first-child {
-      padding-left: 28px;
-    }
-  }
-`;
 
 const QuoteWrap = styled(TableStructure)<{
   canceled?: boolean;

@@ -32,7 +32,7 @@ import {
   Rectangle,
   ShortArrow,
 } from "components/Icons";
-import { RowBetween, RowStart } from "components/Row";
+import { RowStart } from "components/Row";
 import {
   BodyWrap,
   Wrapper,
@@ -42,38 +42,9 @@ import {
   QuoteStatusValue,
   EmptyRow,
   LeverageWrap,
+  TableStructure,
+  HeaderWrap,
 } from "./Common";
-
-const TableStructure = styled(RowBetween)`
-  width: 100%;
-  color: ${({ theme }) => theme.text8};
-  font-size: 12px;
-  font-weight: 400;
-
-  & > * {
-    width: 12%;
-
-    &:first-child {
-      width: 25%;
-    }
-    &:nth-last-child(2) {
-      width: 15%;
-      text-align: right;
-    }
-  }
-`;
-
-const HeaderWrap = styled(TableStructure)`
-  color: ${({ theme }) => theme.text8};
-  font-weight: 500;
-  margin-bottom: 12px;
-
-  & > * {
-    &:first-child {
-      padding-left: 28px;
-    }
-  }
-`;
 
 const QuoteWrap = styled(TableStructure)<{
   canceled?: boolean;

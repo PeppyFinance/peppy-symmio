@@ -1,14 +1,43 @@
 import styled from "styled-components";
-import { RowCenter, RowStart } from "components/Row";
+import { RowBetween, RowCenter, RowStart } from "components/Row";
 import { Column } from "components/Column";
+
+export const TableStructure = styled(RowBetween)`
+  width: 100%;
+  color: ${({ theme }) => theme.text8};
+  font-size: 12px;
+  font-weight: 400;
+
+  & > * {
+    width: 12%;
+
+    &:first-child {
+      width: 25%;
+    }
+    &:nth-last-child(2) {
+      width: 15%;
+      text-align: right;
+    }
+  }
+`;
+
+export const HeaderWrap = styled(TableStructure)`
+  color: ${({ theme }) => theme.text8};
+  font-weight: 500;
+  margin-bottom: 12px;
+  margin: 12px 0px;
+
+  & > * {
+    &:first-child {
+      padding-left: 28px;
+    }
+  }
+`;
 
 export const Wrapper = styled.div`
   overflow-y: scroll;
-  margin-bottom: 50px;
-
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    margin-bottom: 44px;
-  `};
+  height: 100%;
+  background-color: ${({ theme }) => theme.bg1};
 `;
 
 export const BodyWrap = styled(Column)`

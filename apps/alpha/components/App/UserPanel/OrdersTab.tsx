@@ -9,14 +9,14 @@ export enum StateTabs {
 }
 
 const TabWrapper = styled(RowStart)`
-  margin-bottom: 8px;
+  border-bottom: 1px solid ${({ theme }) => theme.border1};
 `;
 const TabButton = styled(RowCenter)<{ active: boolean }>`
   font-size: 16px;
   font-weight: 500;
   width: fit-content;
   white-space: nowrap;
-  padding: 16px;
+  padding: 8.5px 16px;
   color: ${({ active, theme }) => (active ? theme.text8 : theme.text2)};
 
   &:hover {
