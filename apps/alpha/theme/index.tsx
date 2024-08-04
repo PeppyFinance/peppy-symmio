@@ -98,10 +98,6 @@ function colors(): Colors {
       border3: "#2A2E39",
 
       //gradient colors
-      gradDark:
-        "linear-gradient(91.6deg, #180951 0.09%, #110963 77.29%, #050621 100%)",
-      gradLight:
-        "linear-gradient(90deg, #B300B8 0%, #A100AA 50%, #9100DE 100%)",
       hoverGrad: "linear-gradient(90deg, #B100DE 0%, #D800B7 100%)",
       primaryGrad: "linear-gradient(90deg, #D800B7 0%, #B100DE 100%)",
       pinkGrad: "linear-gradient(90deg, #D600B8 0%, #C300CC 50%, #B100DE 100%)",
@@ -264,6 +260,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+  background-color: ${({ theme }) => theme.bg0};
   }
 
   a {

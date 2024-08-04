@@ -73,9 +73,9 @@ export const Option = styled.div<{ active?: boolean }>`
     `
     color: ${theme.text0};
   `}
+
   &:hover {
     cursor: pointer;
-    color: ${({ theme, active }) => (active ? theme.gradLight : theme.text1)};
   }
 `;
 

@@ -42,8 +42,6 @@ export interface Colors {
   border2: Color;
   border3: Color;
 
-  gradDark: Color;
-  gradLight: Color;
   primaryGrad: Color;
   hoverGrad: Color;
   pinkGrad: Color;

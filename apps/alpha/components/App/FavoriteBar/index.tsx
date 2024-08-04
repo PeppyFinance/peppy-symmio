@@ -11,27 +11,25 @@ import { Star } from "components/Icons";
 import BlinkingPrice from "components/App/FavoriteBar/BlinkingPrice";
 
 const Wrapper = styled(Row)`
-  position: relative;
   min-height: 50px;
   border-radius: 2px;
 `;
 
 const FavoritesWrap = styled(Row)`
+  width: unset;
   height: 100%;
-  padding: 8px;
+  padding: 8px 0px;
   position: relative;
-  width: 0px;
   z-index: 1;
   overflow-x: auto;
   overflow-y: hidden;
-  flex: 1 1 0%;
+  flex: 1;
   border-radius: 2px;
-  margin-left: 12px;
 `;
 
 const Nav = styled.div<{ direction: "right" | "left" }>`
   position: absolute;
-  ${({ direction }) => (direction === "left" ? "left: 48px" : "right: 0px")};
+  ${({ direction }) => (direction === "left" ? "left: 0px" : "right: 0px")};
   top: 0;
   height: 100%;
   z-index: 99;
@@ -92,6 +90,23 @@ const Name = styled.div`
   color: ${({ theme }) => theme.text7};
 `;
 
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
+const InnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  flex: 1;
+  overflow-y: hidden;
+`;
+
 export default function FavoriteBar() {
   const favorites = useFavoriteMarkets();
   const ref = useRef<HTMLDivElement>();
@@ -120,65 +135,68 @@ export default function FavoriteBar() {
 
   return (
     <Wrapper className="boxStyling">
-      <Star
-        isFavorite={true}
-        style={{
-          zIndex: 99,
-          marginLeft: "16px",
-        }}
-      />
-
-      {leftArrow && (
-        <NavButton
-          direction="left"
-          onClick={() => {
-            target?.scrollTo({
-              left: target.scrollLeft - SCROLL_AMOUNT,
-              behavior: "smooth",
-            });
+      <IconWrapper>
+        <Star
+          isFavorite={true}
+          style={{
+            zIndex: 99,
+            marginLeft: 16,
+            marginRight: 16,
           }}
         />
-      )}
-
-      <FavoritesWrap
-        ref={ref}
-        onScroll={(e) => {
-          const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
-          const maxScroll = scrollWidth - clientWidth;
-
-          if (scrollLeft > THRESHOLD) {
-            setLeftArrow(true);
-          } else {
-            setLeftArrow(false);
-          }
-
-          if (scrollLeft < maxScroll - THRESHOLD) {
-            setRightArrow(true);
-          } else {
-            setRightArrow(false);
-          }
-        }}
-      >
-        {favorites.length > 0 ? (
-          favorites.map((favorite, index) => (
-            <FavoriteItem market={favorite} key={index} />
-          ))
-        ) : (
-          <Empty>There are no markets in your Favorites List</Empty>
+      </IconWrapper>
+      <InnerWrapper>
+        {leftArrow && (
+          <NavButton
+            direction="left"
+            onClick={() => {
+              target?.scrollTo({
+                left: target.scrollLeft - SCROLL_AMOUNT,
+                behavior: "smooth",
+              });
+            }}
+          />
         )}
-      </FavoritesWrap>
 
-      {rightArrow && (
-        <NavButton
-          direction="right"
-          onClick={() => {
-            target?.scrollTo({
-              left: target.scrollLeft + SCROLL_AMOUNT,
-              behavior: "smooth",
-            });
+        <FavoritesWrap
+          ref={ref}
+          onScroll={(e) => {
+            const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
+            const maxScroll = scrollWidth - clientWidth;
+
+            if (scrollLeft > THRESHOLD) {
+              setLeftArrow(true);
+            } else {
+              setLeftArrow(false);
+            }
+
+            if (scrollLeft < maxScroll - THRESHOLD) {
+              setRightArrow(true);
+            } else {
+              setRightArrow(false);
+            }
           }}
-        />
-      )}
+        >
+          {favorites.length > 0 ? (
+            favorites.map((favorite, index) => (
+              <FavoriteItem market={favorite} key={index} />
+            ))
+          ) : (
+            <Empty>There are no markets in your Favorites List</Empty>
+          )}
+        </FavoritesWrap>
+        {rightArrow && (
+          <NavButton
+            direction="right"
+            onClick={() => {
+              target?.scrollTo({
+                left: target.scrollLeft + SCROLL_AMOUNT,
+                behavior: "smooth",
+              });
+            }}
+          />
+        )}
+      </InnerWrapper>
     </Wrapper>
   );
 }
