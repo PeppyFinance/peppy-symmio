@@ -44,9 +44,11 @@ export const TopWrap = styled(RowComponent)<{
   mobileVersion?: boolean;
   expand?: boolean;
 }>`
-  height: 50px;
+  height: 100%;
+  background: ${({ theme }) => theme.bg1};
   padding: 13px 12px 10px;
   cursor: ${({ mobileVersion }) => (mobileVersion ? "pointer" : "unset")};
+
   ${({ theme, expand }) => theme.mediaWidth.upToMedium`
     height: unset;
     background: ${expand ? theme.bg3 : theme.bg1};
@@ -72,6 +74,8 @@ export const Chevron = styled(ChevronDown)<{ open: boolean }>`
 `;
 
 export const EmptyRow = styled(ColumnCenter)`
+  min-height: 400px;
+  background: ${({ theme }) => theme.bg1};
   font-weight: 400;
   font-size: 12px;
   padding: 56px 0px;

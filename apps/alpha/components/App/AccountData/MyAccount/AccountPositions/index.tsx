@@ -20,7 +20,7 @@ const Container = styled(DefaultContainer)`
   padding: 20px 16px 24px;
   position: relative;
   border-radius: 10px;
-  min-height: 442px;
+  min-height: 400px;
 `;
 
 const Header = styled(DefaultHeader)`

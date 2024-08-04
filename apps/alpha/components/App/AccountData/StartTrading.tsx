@@ -17,13 +17,13 @@ import {
 } from "@symmio/frontend-sdk/state/application/hooks";
 
 import { PrimaryButton } from "components/Button";
-import { Row, RowStart, RowBetween, RowCenter, RowEnd } from "components/Row";
+import { Row, RowStart, RowBetween, RowEnd } from "components/Row";
 import DepositModal from "components/ReviewModal/DepositModal";
 
 const Wrapper = styled.div`
   border: none;
   width: 100%;
-  min-height: 379px;
+  min-height: 400px;
   border-radius: 2px;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     width: 100%;
@@ -45,11 +45,6 @@ const ContentWrapper = styled.div`
   position: relative;
 `;
 
-const ImageWrapper = styled(RowCenter)`
-  margin-top: 25px;
-  margin-bottom: 36px;
-`;
-
 const Label = styled.div`
   font-size: 14px;
   justify-self: start;
@@ -58,16 +53,6 @@ const Label = styled.div`
 
 const Value = styled.div`
   justify-self: end;
-`;
-
-const DepositText = styled.div`
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 37px;
-
-  background: ${({ theme }) => theme.hoverGrad};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 export default function StartTrading({ symbol }: { symbol?: string }) {
@@ -87,15 +72,6 @@ export default function StartTrading({ symbol }: { symbol?: string }) {
       </Row>
 
       <ContentWrapper>
-        <ImageWrapper>
-          <Image
-            src={"/static/images/etc/Asset.svg"}
-            alt="Asset"
-            width={314}
-            height={117}
-          />
-        </ImageWrapper>
-        <DepositText>Deposit {symbol} and start trading</DepositText>
         <RowBetween style={{ marginBottom: "28px" }}>
           <Label>[{`${name}`}] Account Balance:</Label>
           <Value>

@@ -8,45 +8,21 @@ import {
 
 import { useIsMobile } from "lib/hooks/useWindowSize";
 
-import { Tab } from "components/Tab";
+import { TabWrapper, TabButton } from "components/Tabs";
 import AccountOverview from "components/App/AccountData/AccountOverview";
 import PositionDetails from "components/App/AccountData/PositionDetails";
 
-// const Wrapper = styled.div`
-//   width: 100%;
-//   max-width: 480px;
-//   min-height: 379px;
-//   display: flex;
-//   flex-flow: column nowrap;
-//   border-radius: 2px;
-//   background: ${({ theme }) => theme.bg0};
-//   & > * {
-//     &:first-child {
-//       border-radius: 0px;
-//       & > * {
-//         &:first-child {
-//           border-bottom-left-radius: 0;
-//         }
-//         &:last-child {
-//           border-bottom-right-radius: 0;
-//         }
-//       }
-//     }
-//   }
-//   ${({ theme }) => theme.mediaWidth.upToMedium`
-//   max-width: unset;
-// `};
-// `;
-
 const Wrapper = styled.div`
   width: 100%;
+  min-height: 400px;
   max-width: 480px;
-  min-height: 379px;
   display: flex;
   flex-flow: column nowrap;
+  background-color: ${({ theme }) => theme.bg0};
+
   ${({ theme }) => theme.mediaWidth.upToMedium`
-  max-width: unset;
-`};
+    max-width: unset;
+  `};
 `;
 
 export enum PanelType {
@@ -54,8 +30,32 @@ export enum PanelType {
   ACCOUNT_OVERVIEW = "Account Overview",
 }
 
+interface TabProps {
+  activeTab: PanelType;
+  setActiveTab: (tab: PanelType) => void;
+}
+
+function Tab({ activeTab, setActiveTab }: TabProps) {
+  return (
+    <TabWrapper>
+      <TabButton
+        active={activeTab === PanelType.ACCOUNT_OVERVIEW}
+        onClick={() => setActiveTab(PanelType.ACCOUNT_OVERVIEW)}
+      >
+        {PanelType.ACCOUNT_OVERVIEW}
+      </TabButton>
+      <TabButton
+        active={activeTab === PanelType.POSITION_OVERVIEW}
+        onClick={() => setActiveTab(PanelType.POSITION_OVERVIEW)}
+      >
+        {PanelType.POSITION_OVERVIEW}
+      </TabButton>
+    </TabWrapper>
+  );
+}
+
 export default function Overviews() {
-  const [panelType, setPanelType] = useState<PanelType>(
+  const [activeTab, setActiveTab] = useState<PanelType>(
     PanelType.ACCOUNT_OVERVIEW
   );
   const quoteDetail = useQuoteDetail();
@@ -63,24 +63,23 @@ export default function Overviews() {
   const mobileVersion = useIsMobile();
 
   useEffect(() => {
-    if (quoteDetail) setPanelType(PanelType.POSITION_OVERVIEW);
+    if (quoteDetail) setActiveTab(PanelType.POSITION_OVERVIEW);
   }, [quoteDetail]);
+
   useEffect(() => {
-    if (mobileVersion) setPanelType(PanelType.ACCOUNT_OVERVIEW);
+    if (mobileVersion) setActiveTab(PanelType.ACCOUNT_OVERVIEW);
   }, [mobileVersion]);
+
+  useEffect(() => {
+    if (activeTab === PanelType.ACCOUNT_OVERVIEW) setQuoteDetail(null);
+  }, [activeTab]);
+
   return (
     <Wrapper className="boxStyling">
       {!mobileVersion && (
-        <Tab
-          tabOptions={[PanelType.ACCOUNT_OVERVIEW, PanelType.POSITION_OVERVIEW]}
-          activeOption={panelType}
-          onChange={(option: string) => {
-            setPanelType(option as PanelType);
-            if (option === PanelType.ACCOUNT_OVERVIEW) setQuoteDetail(null);
-          }}
-        />
+        <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
-      {panelType === PanelType.ACCOUNT_OVERVIEW ? (
+      {activeTab === PanelType.ACCOUNT_OVERVIEW ? (
         <AccountOverview mobileVersion={mobileVersion} />
       ) : (
         <PositionDetails quote={quoteDetail} />

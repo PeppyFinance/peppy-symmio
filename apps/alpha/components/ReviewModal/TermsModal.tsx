@@ -2,8 +2,6 @@ import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
-import GRADIENT_THENA_LOGO from "/public/static/images/etc/GradientThena.svg";
-
 import { Modal } from "components/Modal";
 import { DotFlashing, Wallet } from "components/Icons";
 
@@ -63,14 +61,6 @@ export default function TermsModal({
     >
       <Wrapper>
         <RowStart>Terms of Service</RowStart>
-        <ImageWrapper>
-          <Image
-            src={GRADIENT_THENA_LOGO}
-            alt="thena_logo"
-            width={110}
-            height={121}
-          />
-        </ImageWrapper>
         <AccountWrapper>
           {account && truncateAddress(account)}
           <RowEnd>

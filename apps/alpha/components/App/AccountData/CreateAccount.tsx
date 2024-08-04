@@ -29,7 +29,7 @@ import { PrimaryButton } from "components/Button";
 const Wrapper = styled.div<{ modal?: boolean }>`
   border: none;
   width: 100%;
-  min-height: 379px;
+  min-height: 400px;
   border-radius: 4px;
 `;
 

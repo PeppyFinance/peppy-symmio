@@ -41,18 +41,13 @@ import DataRow from "components/App/AccountData/DataRow";
 import WithdrawModal from "components/ReviewModal/WithdrawModal";
 import { PrimaryButton } from "components/Button";
 
-// const Wrapper = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-flow: column nowrap;
-//   border-radius: 4px;
-//   background: ${({ theme }) => theme.bg0};
-// `;
-
 const Wrapper = styled.div`
   width: 100%;
+  min-height: 400px;
+  height: 100%;
   display: flex;
   flex-flow: column nowrap;
+  background: ${({ theme }) => theme.bg1};
 `;
 
 const Title = styled(Row)`
