@@ -58,19 +58,21 @@ const LeverageWrap = styled.div`
 `;
 
 const LeverageValue = styled(RowStart)`
-  width: 72px;
-  height: 36px;
+  width: 64px;
+  height: 43px;
   font-size: 12px;
   padding: 8px;
   padding-left: 12px;
   border-radius: 2px;
-  border: 1px solid ${({ theme }) => theme.border1};
+  background-color: ${({ theme }) => theme.bg0};
+  border: 1.5px solid ${({ theme }) => theme.bg};
 `;
 
 const LeverageInput = styled(InputAmount)`
   font-weight: 500;
   font-size: 14px;
-  text-align: left;
+  text-align: right;
+  padding-right: 6px;
   background: "transparent";
   font-family: ${({ theme }) => theme.fonts.main};
   color: ${({ theme }) => theme.text0};
@@ -243,7 +245,7 @@ export default function AmountsPanel() {
                   if (!customLeverage) setCustomLeverage(MIN_LEVERAGE_VALUE);
                 }}
               />
-              <LeverageIcon width={10} height={10} color={mixedColor} />
+              <LeverageIcon width={10} height={10} color={theme.green1} />
             </LeverageValue>
           </div>
         </LeverageWrap>

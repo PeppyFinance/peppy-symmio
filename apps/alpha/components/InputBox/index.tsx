@@ -30,7 +30,8 @@ const NumericalWrapper = styled(RowBetween)`
   width: 100%;
   font-size: 16px;
   position: relative;
-  border: 1px solid ${({ theme }) => theme.border1};
+  border: 1.5px solid ${({ theme }) => theme.bg};
+  background-color: ${({ theme }) => theme.bg0};
   border-radius: 2px;
   padding: 4px 8px;
   color: ${({ theme }) => theme.text7};

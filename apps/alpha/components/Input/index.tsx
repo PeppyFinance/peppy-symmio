@@ -19,7 +19,7 @@ export const InputField = styled.input<{
   border: none;
 
   background: ${({ theme, calculationMode }) =>
-    calculationMode ? theme.blue2 : "transparent"};
+    calculationMode ? theme.blue2 : theme.bg0};
   -webkit-background-clip: text;
   -webkit-text-fill-color: ${({ calculationMode }) =>
     calculationMode ? "transparent" : "unset"};
