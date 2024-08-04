@@ -4,7 +4,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  text-align: center;
+  text-align: left;
 `;
 export const ColumnCenter = styled(Column)`
   align-items: center;

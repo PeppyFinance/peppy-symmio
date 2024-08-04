@@ -74,7 +74,6 @@ export const Name = styled.div<{
 }>`
   display: flex;
   align-items: center;
-  justify-content: center;
   text-wrap: nowrap;
   font-weight: 400;
   font-size: 12px;
@@ -93,11 +92,8 @@ export const Value = styled.div<{
   text-wrap: nowrap;
   font-weight: 500;
   font-size: 12px;
-  text-align: ${({ textAlign }) => textAlign ?? "center"};
   color: ${({ theme }) => theme.text0};
-  ${({ theme, textAlignMedium }) => theme.mediaWidth.upToMedium`
-    text-align: ${textAlignMedium ?? "center"};
-  `};
+  text-align: left;
 `;
 
 export default function MarketBar() {
@@ -151,7 +147,7 @@ export default function MarketBar() {
           </Column>
           <Separator />
           <Column>
-            <Name>{activeMarket?.symbol} Notional Cap</Name>
+            <Name>Notional Cap</Name>
             <Value>
               {notionalCapUsed === -1 ? (
                 <Loader size={"12px"} stroke="#EBEBEC" />

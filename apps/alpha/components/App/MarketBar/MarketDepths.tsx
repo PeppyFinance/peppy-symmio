@@ -38,7 +38,6 @@ const MarketDepth = styled(RowEnd)`
 `;
 
 export default function MarketDepths() {
-  const theme = useTheme();
   const activeMarket = useActiveMarket();
   const { ask, bid, spread } = useBidAskPrice(activeMarket);
 
