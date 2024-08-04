@@ -25,7 +25,7 @@ const Value = styled.div<{
   color?: string;
   size?: string;
 }>`
-  text-align: center;
+  text-align: left;
   color: ${({ theme, color }) => color ?? theme.text0};
   ${({ size }) =>
     size &&

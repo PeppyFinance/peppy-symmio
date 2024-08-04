@@ -28,6 +28,7 @@ const Input = styled.input<{
   flex: 1;
   border: none;
   background: transparent;
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.8rem;
   color: ${({ theme }) => theme.text8};
   padding-left: 2px;

@@ -81,12 +81,14 @@ const UpperRow = styled(RowStart)`
 `;
 
 const Close = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   padding: 8px;
   cursor: pointer;
   border-radius: 4px;
-  margin: 2px 2px 1px 0px;
 `;
 
 export function MarketsModal({
@@ -108,7 +110,7 @@ export function MarketsModal({
           <Wrapper>
             <InputField searchProps={searchProps} placeholder="Search" />
             <Close onClick={onDismiss}>
-              <CloseIcon size={16} onClick={onDismiss} />
+              <CloseIcon size={12} onClick={onDismiss} />
             </Close>
           </Wrapper>
         </UpperRow>

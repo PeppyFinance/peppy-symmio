@@ -86,13 +86,14 @@ export const Name = styled.div<{
 `;
 
 export const Value = styled.div<{
+  color?: string;
   textAlign?: string;
   textAlignMedium?: string;
 }>`
   text-wrap: nowrap;
   font-weight: 500;
   font-size: 12px;
-  color: ${({ theme }) => theme.text0};
+  color: ${({ theme, color }) => color ?? theme.text0};
   text-align: left;
 `;
 
@@ -131,7 +132,7 @@ export default function MarketBar() {
           <Separator />
           <Column>
             <Name textAlignMedium={"center"}>Open Interest</Name>
-            <Value textAlignMedium={"center"}>
+            <Value>
               {used === -1 ? (
                 <Loader size={"12px"} stroke="#EBEBEC" />
               ) : (
